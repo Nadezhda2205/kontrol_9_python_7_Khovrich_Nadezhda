@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% load static %}
+
+{% block title %}
+    Просмотр детальной страницы 
+{% endblock %}
+
+{% block content %}
+    <a href="{% url 'account_update' user.username %}">{{ user.username }}</a>
+
+{{ account.name }} - имя
+{{ account.username }}-
+{{ account.phone }} - 
+{{ account.email }} -
+
+{% endblock %}

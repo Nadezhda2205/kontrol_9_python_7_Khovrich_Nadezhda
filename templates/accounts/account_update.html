@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% load static %}
+
+{% block title %}
+    Просмотр детальной страницы 
+{% endblock %}
+
+{% block content %}
+
+<form action="" method='POST'>
+        {% csrf_token %}
+
+        {{ form|bootstrap }}
+
+        <input class="btn btn-secondary" type="submit" value="Сохранить">
+</form>
+
+
+{% endblock %}

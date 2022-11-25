@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% comment %} {% load static %} {% endcomment %}
+
+
+{% block content %}
+
+<form method="POST" action="{% url 'register' %}" enctype="multipart/form-data">
+    <div class='form'>
+        {% csrf_token %}
+        {{ form|bootstrap }}
+
+        <input type="submit" value="Зарегистрироваться">
+
+    </div>
+</form>
+
+{% endblock %}
