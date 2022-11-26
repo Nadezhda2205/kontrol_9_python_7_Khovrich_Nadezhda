@@ -6,5 +6,3 @@ class PhotoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Photo
         exclude = ('created_at', 'signature')
-
-

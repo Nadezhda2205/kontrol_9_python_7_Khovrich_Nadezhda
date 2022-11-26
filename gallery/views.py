@@ -18,12 +18,6 @@ class PhotoDetailView(DetailView):
     model = Photo
     context_object_name = 'photo'
 
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     photo_form = PhotoForm()
-    #     context['comment_form'] = photo_form
-    #     return context
-
 
 class PhotoCreateView(LoginRequiredMixin, CreateView):
     template_name = 'gallery/photo_create.html'
@@ -65,4 +59,3 @@ class PhotoDeleteView(LoginRequiredMixin, DeleteView):
         if not self.get_object().author == request.user:
             return self.handle_no_permission()
         return super().dispatch(request, *args, **kwargs)
-

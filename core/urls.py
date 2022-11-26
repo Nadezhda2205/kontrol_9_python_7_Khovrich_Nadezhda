@@ -13,6 +13,7 @@ urlpatterns = [
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', logout_view, name='logout'),
     path('register/', RegisterView.as_view(), name='register'),
+    
     path('<str:slug>', AccountDetailView.as_view(), name='account_detail'),
     path('<str:slug>/update', AccountUpdateView.as_view(), name='account_update'),
 
@@ -20,9 +21,6 @@ urlpatterns = [
     path('photo/add/', PhotoCreateView.as_view(), name='photo_create'),
     path('photo/edit/<int:pk>', PhotoUpdateView.as_view(), name='photo_update'),
     path('photo/delete/<int:pk>', PhotoDeleteView.as_view(), name='photo_delete'),
-    
-
-
 
     path('api/', include('api.urls')),
     

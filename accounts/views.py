@@ -85,9 +85,3 @@ class AccountUpdateView(UpdateView):
     
     def get_success_url(self):
         return reverse('account_detail', kwargs={'slug': self.object.username})
-
-    # def dispatch(self, request, *args, **kwargs):
-    #     if not self.get_object() == request.user:
-    #         return self.handle_no_permission()
-    #     return super().dispatch(request, *args, **kwargs)
-
