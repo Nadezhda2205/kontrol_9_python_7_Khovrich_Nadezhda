@@ -19,7 +19,7 @@
 
                 <div class="box">
                     {% comment %} {% if photo %} {% endcomment %}
-                    <a href="#">
+                    <a href="{% url 'photo_detail' photo.pk %}">
                         <img class="box_img border border-2 img" src="{{ photo.photo.url }}" alt="image" width="350">
                         {% comment %} {% else %} {% endcomment %}
                             {% comment %} <img class="box_img border border-2 rounded-circle img" src="{% static 'img/placeholder.png' %}" alt="image" width="500"> {% endcomment %}
@@ -32,6 +32,11 @@
                     <b>{{ photo.author }}</b>
                 
                     <span class="card-text">{{ photo.signature }}</span>
+                    <p>В списке избранных:</p>
+                    {% comment %} {% for favourite in avourites %} {% endcomment %}
+                    
+                    {% comment %} {% endfor %} {% endcomment %}
+                    
                 </div>
             </div>
         </div>

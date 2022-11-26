@@ -28,10 +28,10 @@ class Favourite(models.Model):
         blank=False,
         on_delete=models.CASCADE
         )
-    author = models.ForeignKey(
+    accounts = models.ForeignKey(
         verbose_name='Автор',
         to=get_user_model(),
-        related_name='photos',
+        related_name='favourites',
         null=False,
         blank=False,
         on_delete=models.CASCADE

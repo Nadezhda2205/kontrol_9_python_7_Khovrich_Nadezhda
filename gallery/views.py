@@ -35,3 +35,6 @@ class PhotoCreateView(CreateView):
         self.object.save()
 
         return super().form_valid(form)
+
+
+        
