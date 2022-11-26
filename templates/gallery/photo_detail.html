@@ -2,15 +2,15 @@
 {% load static %}
 
 {% block title %}
-Главная страница
+Детальный просмотр фото
 {% endblock %}
 
 {% block content %}
 
 
-список фото
 
-    {% for photo in photos %}
+
+    {% comment %} {% for photo in photos %} {% endcomment %}
 
     <div class="row row-cols-1 g-4" id="{{photo.pk}}">
         <div class="col" style="width: min-content;">
@@ -29,14 +29,15 @@
 
                 <div class="card-body">
                 
-                    <b>{{ photo.author }}</b>
+                    Автор: <b>{{ photo.author }}</b><br>
                 
-                    <span class="card-text">{{ photo.signature }}</span>
+                    <span class="card-text">Описание: {{ photo.signature }}</span><br>
+                    <span class="card-text">Дата создания: {{ photo.created_at }}</span>
                 </div>
             </div>
         </div>
     </div>
 
-{% endfor %}
+{% comment %} {% endfor %} {% endcomment %}
 
 {% endblock %}

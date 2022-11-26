@@ -4,7 +4,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 from accounts.views import LoginView, logout_view, RegisterView, AccountDetailView, AccountUpdateView
-from gallery.views import PhotoListView
+from gallery.views import PhotoListView, PhotoDetailView
 
 
 urlpatterns = [
@@ -15,7 +15,7 @@ urlpatterns = [
     path('register/', RegisterView.as_view(), name='register'),
     path('<str:slug>', AccountDetailView.as_view(), name='account_detail'),
     path('<str:slug>/update', AccountUpdateView.as_view(), name='account_update'),
-    # path('<photo/', PhotoListView.as_view(), name='list_photo'),
+    path('photo/<int:pk>/', PhotoDetailView.as_view(), name='photo_detail'),
 
     path('api/', include('api.urls')),
     
