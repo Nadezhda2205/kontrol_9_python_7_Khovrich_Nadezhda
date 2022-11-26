@@ -8,6 +8,6 @@ router.register('photo', PhotoApiView)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('photo/<int:pk>/favourite/', PhotoApiView.as_view({'get': 'photo_to_favorite'})),
-    path('photo/<int:pk>/fromfavorite/', PhotoApiView.as_view({'get': 'photo_from_favorite'})),
+    path('photo/<int:pk>/tofav/', PhotoApiView.as_view({'get': 'photo_to_favorite'})),
+    path('photo/<int:pk>/fromfav/', PhotoApiView.as_view({'get': 'photo_from_favorite'})),
 ]

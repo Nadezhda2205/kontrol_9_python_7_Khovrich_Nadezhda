@@ -8,7 +8,7 @@
 {% block content %}
 
     
-    <div class="row row-cols-1 g-4" id="{{photo.pk}}">
+    <div class="row row-cols-1 g-4">
         <div class="col" style="width: min-content;">
 
             <div class="card">
@@ -42,5 +42,19 @@
             <input class="btn btn-secondary btn-sm " type="submit" value="удалить">
         </form>
     {% endif %}
+
+    {% if photo in user.favourited_photos.all %}
+        <a href="#" class="from-fav btn btn-secondary btn-sm" id="{{photo.pk}}">Удалить из избранного</a>
+    {% else %}
+        <a href="#" class="to-fav btn btn-secondary btn-sm" id="{{photo.pk}}">Добавить в избранное</a><br>
+    {%endif%}
+
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="{% static 'js/fav.js' %}"></script>
+
+
 
 {% endblock %}
