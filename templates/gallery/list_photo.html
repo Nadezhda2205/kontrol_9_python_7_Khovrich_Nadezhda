@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Главная страница
+{% endblock %}
+
+{% block content %}
+
+
+список фото
+
+<div class="row row-cols-3 row-cols-md-1 g-4">
+{% for photo in photos %}
+
+    <div class="row row-cols-1 g-4" id="{{photo.pk}}">
+        <div class="col" style="width: min-content;">
+
+            <div class="card ">
+                <div class="card-header">
+                    <div>
+                        <b>{{ photo.author }}</b>
+                    </div>
+                </div>
+                <div class="card-body">
+                
+                    <b>{{ photo.author }}</b>
+                
+                    <span class="card-text">{{ photo.signature }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  {% endfor %}
+
+{% endblock %}

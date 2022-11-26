@@ -1,5 +1,5 @@
 from django.contrib import admin
-from gallery.models import Photo, Favourites
+from gallery.models import Photo, Favourite
 
 class PhotoAdmin(admin.ModelAdmin):
     list_display = ['photo', 'signature', 'author', 'created_at']
@@ -11,4 +11,4 @@ class FavouritAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Photo, PhotoAdmin)
-admin.site.register(Favourites, FavouritAdmin)
+admin.site.register(Favourite, FavouritAdmin)
