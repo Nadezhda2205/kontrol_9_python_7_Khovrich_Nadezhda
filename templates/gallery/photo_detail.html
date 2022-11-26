@@ -33,15 +33,17 @@
         {{account.name}}
     {% endfor %}
 
+    <form method="POST" action="{% url 'photo_delete' photo.pk %}">
+        {% csrf_token %}
 
-    {% if photo.author == user %}
-        <form method="POST" action="{% url 'photo_delete' photo.pk %}">
-            {% csrf_token %}
-            <a href="{% url 'photo_update' photo.pk %}" class="btn btn-secondary btn-sm " role="button">Редактировать</a>
-
+        {% if photo.author == user or has_edit_permission %}
+            <a href="{% url 'photo_update' photo.pk %}" class="btn btn-secondary btn-sm  " role="button">Редактировать</a>
+        {% endif %}
+        
+        {% if photo.author == user or has_del_permission %}
             <input class="btn btn-secondary btn-sm " type="submit" value="удалить">
-        </form>
-    {% endif %}
+        {% endif %}
+    </form>
 
     {% if photo in user.favourited_photos.all %}
         <a href="#" class="from-fav btn btn-secondary btn-sm mt-3" id="{{photo.pk}}">Удалить из избранного</a>

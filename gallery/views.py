@@ -49,6 +49,8 @@ class PhotoUpdateView(LoginRequiredMixin, UpdateView):
         return super().dispatch(request, *args, **kwargs)
 
 
+
+
 class PhotoDeleteView(LoginRequiredMixin, DeleteView):
     model = Photo
     success_url = reverse_lazy('index')
@@ -60,3 +62,12 @@ class PhotoDeleteView(LoginRequiredMixin, DeleteView):
         if not (self.get_object().author == request.user or request.user.groups.filter(name='photo_del').exists()):
             return self.handle_no_permission()
         return super().dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.user.groups.filter(name='photo_edit').exists():
+            context['has_edit_permission'] = True
+        if self.request.user.groups.filter(name='photo_del').exists():
+            context['has_del_permission'] = True
+        return context
+
