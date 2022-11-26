@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block title %}
+    Редактирование
+{% endblock %}
+
+
+ {% block content %}
+    <h5>Редактирование:</h5>
+    <form action="" method="POST">
+        {% csrf_token %}
+        
+        {{ form|bootstrap }}
+
+<input class="btn btn-secondary btn-sm" type="submit" value="Сохранить">
+
+    </form>
+
+{% endblock %}
+

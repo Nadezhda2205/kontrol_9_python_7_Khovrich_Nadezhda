@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.urls import reverse
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
 from gallery.models import Photo
 from gallery.forms import PhotoForm
@@ -36,5 +37,12 @@ class PhotoCreateView(CreateView):
 
         return super().form_valid(form)
 
+class PhotoUpdateView(UpdateView):
+    template_name = 'gallery/photo_update.html'
 
-        
+    form_class = PhotoForm
+    model = Photo
+    context_object_name = 'photos'
+
+    def get_success_url(self):
+        return reverse('photo_detail', kwargs={'pk': self.object.pk})

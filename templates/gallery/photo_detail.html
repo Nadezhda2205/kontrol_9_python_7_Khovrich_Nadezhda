@@ -12,7 +12,7 @@
 
     {% comment %} {% for photo in photos %} {% endcomment %}
     {% comment %} <a href="{% url 'edit_resume' resume.pk %}" class="btn btn-secondary btn-sm mt-3 ms-3" role="button">Отмена</a> {% endcomment %}
-    <a href="" class="btn btn-secondary btn-sm mt-3 ms-3" role="button">Редактировать фото</a>
+    <a href="{% url 'photo_update' photo.pk %}" class="btn btn-secondary btn-sm mt-3 ms-3" role="button">Редактировать фото</a>
     <div class="row row-cols-1 g-4" id="{{photo.pk}}">
         <div class="col" style="width: min-content;">
 

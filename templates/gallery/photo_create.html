@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load bootstrap %}
+
 {% load static %}
 
 {% block title %}
@@ -12,7 +14,7 @@
     <div class='form'>
         {% csrf_token %}
 
-        {{form.as_p}}
+        {{ form|bootstrap }}
 
         <input type="submit" value="Создать и добавить в галерею">
 
