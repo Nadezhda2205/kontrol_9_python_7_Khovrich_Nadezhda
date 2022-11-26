@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Главная страница
+{% endblock %}
+
+{% block content %}
+
+
+список фото
+
+    {% for photo in photos %}
+
+    <div class="row row-cols-1 g-4" id="{{photo.pk}}">
+        <div class="col" style="width: min-content;">
+
+            <div class="card">
+
+                <div class="box">
+                    {% comment %} {% if photo %} {% endcomment %}
+                    <a href="#">
+                        <img class="box_img border border-2 img" src="{{ photo.photo.url }}" alt="image" width="350">
+                        {% comment %} {% else %} {% endcomment %}
+                            {% comment %} <img class="box_img border border-2 rounded-circle img" src="{% static 'img/placeholder.png' %}" alt="image" width="500"> {% endcomment %}
+                        {% comment %} {%endif%} {% endcomment %}
+                    </a>
+                </div>
+
+                <div class="card-body">
+                
+                    <b>{{ photo.author }}</b>
+                
+                    <span class="card-text">{{ photo.signature }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endfor %}
+
+{% endblock %}
