@@ -6,4 +6,11 @@ class PhotoForm(forms.ModelForm):
 
     class Meta:
         model = Photo
-        fields = ('photo', 'signature', 'author')
+        fields = ('photo', 'signature')
+
+class PhotoUpdateForm(forms.ModelForm):
+
+    class Meta:
+        model = Photo
+        fields = ('signature', )
+        

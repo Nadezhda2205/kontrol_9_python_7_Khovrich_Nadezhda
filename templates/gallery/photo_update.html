@@ -8,12 +8,12 @@
 
  {% block content %}
     <h5>Редактирование:</h5>
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         
         {{ form|bootstrap }}
 
-<input class="btn btn-secondary btn-sm" type="submit" value="Сохранить">
+<input class="btn btn-secondary btn-sm mt-3" type="submit" value="Сохранить">
 
     </form>
 

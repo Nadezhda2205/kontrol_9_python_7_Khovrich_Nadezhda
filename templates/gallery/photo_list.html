@@ -29,14 +29,12 @@
 
                 <div class="card-body">
                 
-                    <b>{{ photo.author }}</b>
+                    Автор: <b>{{ photo.author }}</b><br>
+                    <hr>
                 
-                    <span class="card-text">{{ photo.signature }}</span>
-                    <p>В списке избранных:</p>
-                    {% comment %} {% for favourite in avourites %} {% endcomment %}
-                    
-                    {% comment %} {% endfor %} {% endcomment %}
-                    
+                    <span class="card-text">Описание: {{ photo.signature }}</span><br>
+                    <span class="card-text">Дата создания: {{ photo.created_at }}</span><br>
+                   
                 </div>
             </div>
         </div>
