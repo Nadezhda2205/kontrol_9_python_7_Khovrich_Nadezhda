@@ -44,9 +44,9 @@
     {% endif %}
 
     {% if photo in user.favourited_photos.all %}
-        <a href="#" class="from-fav btn btn-secondary btn-sm" id="{{photo.pk}}">Удалить из избранного</a>
+        <a href="#" class="from-fav btn btn-secondary btn-sm mb-3" id="{{photo.pk}}">Удалить из избранного</a>
     {% else %}
-        <a href="#" class="to-fav btn btn-secondary btn-sm" id="{{photo.pk}}">Добавить в избранное</a><br>
+        <a href="#" class="to-fav btn btn-secondary btn-sm mb-3" id="{{photo.pk}}">Добавить в избранное</a><br>
     {%endif%}
 
 

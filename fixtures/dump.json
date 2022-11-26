@@ -1,5 +1,39 @@
 [
 {
+  "model": "auth.group",
+  "fields": {
+    "name": "photo_del",
+    "permissions": [
+      [
+        "delete_photo",
+        "gallery",
+        "photo"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "fields": {
+    "name": "photo_edit",
+    "permissions": [
+      [
+        "change_favourite",
+        "gallery",
+        "favourite"
+      ]
+    ]
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ojbcovr48igh2kd1o0hfhp3uqf70nwfs",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCHwkBduu8ZyDCAVA0kpV0Z765NutDtf-_9l_C0rcVvPS1-juIiQJx-t0D8SHUH8U711iS3ui5zkLsiD9rl1GJ6Xg_376BQL986MDltLDLklEGhOSMEVIRhtJaQxgGyilYhKw15MNYlTZoSkB4cWBbvD9nsN2w:1oys0K:eSgSR6FG0eQIL2vMa949l5vaCD1n5ms_xa5iuLYe1Ac",
+    "expire_date": "2022-12-10T10:01:48.383Z"
+  }
+},
+{
   "model": "sessions.session",
   "pk": "rlp1q3z74b9lxq7z0gk5b3p1fb2w5hcr",
   "fields": {
@@ -8,18 +42,10 @@
   }
 },
 {
-  "model": "sessions.session",
-  "pk": "winnsjqxoadxe8wp1xjg8uzjs0kq1oms",
-  "fields": {
-    "session_data": ".eJxVjEEOwiAQRe_C2hCHwkBduu8ZyDCAVA0kpV0Z765NutDtf-_9l_C0rcVvPS1-juIiQJx-t0D8SHUH8U711iS3ui5zkLsiD9rl1GJ6Xg_376BQL986MDltLDLklEGhOSMEVIRhtJaQxgGyilYhKw15MNYlTZoSkB4cWBbvD9nsN2w:1oyoC9:SLbjIEV2wAhFjO6dB6jGnxg2q4kfllkti_t3XmyTRPM",
-    "expire_date": "2022-12-10T05:57:45.444Z"
-  }
-},
-{
   "model": "accounts.account",
   "fields": {
     "password": "pbkdf2_sha256$390000$HraUZG6Tk1rFiMUV3jZVJ8$u4SFVi7o+muUYVPVA+DWgBM1+F8JTET4D9OTmA2Zj4o=",
-    "last_login": "2022-11-26T05:57:45Z",
+    "last_login": "2022-11-26T10:01:48.377Z",
     "is_superuser": true,
     "username": "root",
     "first_name": "",
@@ -39,7 +65,7 @@
   "model": "accounts.account",
   "fields": {
     "password": "pbkdf2_sha256$390000$fUYOHMBA2IgbZEQIRDa6XT$9/671VVk724EkmXU85faQcv0PEcE7y1Q7+Q4hmlo7yw=",
-    "last_login": "2022-11-25T15:47:37Z",
+    "last_login": "2022-11-26T09:34:38.843Z",
     "is_superuser": false,
     "username": "user_1",
     "first_name": "",
@@ -51,6 +77,26 @@
     "name": "Пользователь_1",
     "phone": "+7(777)556-74-18",
     "description": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.account",
+  "fields": {
+    "password": "pbkdf2_sha256$390000$jXyakN5AnGAB0nyO7nady3$b3maCqfUkV8TC1Ltn0hVQWcmIYxIhN6gpNYnYaFGkBQ=",
+    "last_login": "2022-11-26T09:34:12.756Z",
+    "is_superuser": false,
+    "username": "user_2",
+    "first_name": "",
+    "last_name": "",
+    "email": "foo@mail.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-11-26T09:34:12.445Z",
+    "name": "Юзер_2",
+    "phone": "+7(777)556-74-18",
+    "description": null,
     "groups": [],
     "user_permissions": []
   }
@@ -144,8 +190,32 @@
   "pk": 8,
   "fields": {
     "photo": "photo/img_7_Dv0B25t.jpg",
-    "signature": "Красивая картинка",
+    "signature": "Еще одна напоследок",
     "created_at": "2022-11-26T07:53:31.825Z",
+    "author": [
+      "user_1"
+    ]
+  }
+},
+{
+  "model": "gallery.photo",
+  "pk": 10,
+  "fields": {
+    "photo": "photo/img_9_slBLjPd.jpg",
+    "signature": "Просто картинка",
+    "created_at": "2022-11-26T09:05:17.349Z",
+    "author": [
+      "root"
+    ]
+  }
+},
+{
+  "model": "gallery.photo",
+  "pk": 11,
+  "fields": {
+    "photo": "photo/img_9_mFJX7gR.jpg",
+    "signature": "Со счету сбилась в картиках",
+    "created_at": "2022-11-26T09:07:37.906Z",
     "author": [
       "root"
     ]
@@ -157,7 +227,7 @@
   "fields": {
     "photo": 1,
     "accounts": [
-      "root"
+      "user_1"
     ],
     "created_at": "2022-11-26T07:58:39.229Z"
   }
@@ -168,7 +238,7 @@
   "fields": {
     "photo": 2,
     "accounts": [
-      "root"
+      "user_1"
     ],
     "created_at": "2022-11-26T07:58:44.666Z"
   }
@@ -197,17 +267,6 @@
 },
 {
   "model": "gallery.favourite",
-  "pk": 5,
-  "fields": {
-    "photo": 5,
-    "accounts": [
-      "root"
-    ],
-    "created_at": "2022-11-26T07:58:57.381Z"
-  }
-},
-{
-  "model": "gallery.favourite",
   "pk": 6,
   "fields": {
     "photo": 6,
@@ -223,7 +282,7 @@
   "fields": {
     "photo": 7,
     "accounts": [
-      "root"
+      "user_2"
     ],
     "created_at": "2022-11-26T07:59:03.567Z"
   }
@@ -237,6 +296,39 @@
       "root"
     ],
     "created_at": "2022-11-26T07:59:10.217Z"
+  }
+},
+{
+  "model": "gallery.favourite",
+  "pk": 9,
+  "fields": {
+    "photo": 5,
+    "accounts": [
+      "user_2"
+    ],
+    "created_at": "2022-11-26T09:36:10.077Z"
+  }
+},
+{
+  "model": "gallery.favourite",
+  "pk": 10,
+  "fields": {
+    "photo": 5,
+    "accounts": [
+      "root"
+    ],
+    "created_at": "2022-11-26T10:51:57.151Z"
+  }
+},
+{
+  "model": "gallery.favourite",
+  "pk": 14,
+  "fields": {
+    "photo": 7,
+    "accounts": [
+      "root"
+    ],
+    "created_at": "2022-11-26T11:36:52.650Z"
   }
 },
 {
@@ -541,6 +633,132 @@
     ],
     "object_id": "8",
     "object_repr": "Favourite object (8)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2022-11-26T09:15:47.066Z",
+    "user": [
+      "root"
+    ],
+    "content_type": [
+      "gallery",
+      "favourite"
+    ],
+    "object_id": "1",
+    "object_repr": "Favourite object (1)",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2022-11-26T09:31:26.716Z",
+    "user": [
+      "root"
+    ],
+    "content_type": [
+      "gallery",
+      "favourite"
+    ],
+    "object_id": "1",
+    "object_repr": "Favourite object (1)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0410\\u0432\\u0442\\u043e\\u0440\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2022-11-26T09:31:36.145Z",
+    "user": [
+      "root"
+    ],
+    "content_type": [
+      "gallery",
+      "favourite"
+    ],
+    "object_id": "2",
+    "object_repr": "Favourite object (2)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0410\\u0432\\u0442\\u043e\\u0440\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2022-11-26T09:36:01.147Z",
+    "user": [
+      "root"
+    ],
+    "content_type": [
+      "gallery",
+      "favourite"
+    ],
+    "object_id": "7",
+    "object_repr": "Favourite object (7)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0410\\u0432\\u0442\\u043e\\u0440\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2022-11-26T09:36:10.078Z",
+    "user": [
+      "root"
+    ],
+    "content_type": [
+      "gallery",
+      "favourite"
+    ],
+    "object_id": "9",
+    "object_repr": "Favourite object (9)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2022-11-26T11:54:27.869Z",
+    "user": [
+      "root"
+    ],
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "object_id": "1",
+    "object_repr": "photo_del",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2022-11-26T11:54:48.035Z",
+    "user": [
+      "root"
+    ],
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "object_id": "2",
+    "object_repr": "photo_edit",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }

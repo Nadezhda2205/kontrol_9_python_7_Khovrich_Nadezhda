@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from gallery.models import Photo
@@ -11,6 +12,7 @@ class PhotoListView(ListView):
     template_name: str = 'gallery/photo_list.html'
     model = Photo
     context_object_name = 'photos'
+    
     
 
 class PhotoDetailView(DetailView):
@@ -43,7 +45,7 @@ class PhotoUpdateView(LoginRequiredMixin, UpdateView):
         return reverse('photo_detail', kwargs={'pk': self.object.pk})
 
     def dispatch(self, request, *args, **kwargs):
-        if not self.get_object().author == request.user:
+        if not (self.get_object().author == request.user or request.user.groups.filter(name='photo_edit').exists()):
             return self.handle_no_permission()
         return super().dispatch(request, *args, **kwargs)
 
@@ -56,6 +58,6 @@ class PhotoDeleteView(LoginRequiredMixin, DeleteView):
         return self.post(request, *args, **kwargs)   
 
     def dispatch(self, request, *args, **kwargs):
-        if not self.get_object().author == request.user:
+        if not (self.get_object().author == request.user or request.user.groups.filter(name='photo_del').exists()):
             return self.handle_no_permission()
         return super().dispatch(request, *args, **kwargs)
