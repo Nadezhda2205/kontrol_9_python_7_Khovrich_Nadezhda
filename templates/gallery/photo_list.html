@@ -24,8 +24,8 @@
                 </div>
 
                 <div class="card-body">
-                
-                    Автор:  <a href="{% url 'account_detail' user.username %}">
+                    
+                    Автор:  <a href="{% url 'account_detail' photo.author.username %}">
                                 <b>{{ photo.author }}</b><br>
                             </a>
                     <hr>

@@ -21,6 +21,9 @@ urlpatterns = [
     path('photo/edit/<int:pk>', PhotoUpdateView.as_view(), name='photo_update'),
     path('photo/delete/<int:pk>', PhotoDeleteView.as_view(), name='photo_delete'),
     
+
+
+
     path('api/', include('api.urls')),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

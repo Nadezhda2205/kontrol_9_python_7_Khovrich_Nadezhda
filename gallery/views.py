@@ -25,7 +25,7 @@ class PhotoDetailView(DetailView):
     #     return context
 
 
-class PhotoCreateView(CreateView):
+class PhotoCreateView(LoginRequiredMixin, CreateView):
     template_name = 'gallery/photo_create.html'
     model = Photo
     form_class = PhotoForm

@@ -7,7 +7,7 @@
 
 {% block content %}
 
-    <a href="{% url 'photo_update' photo.pk %}" class="btn btn-secondary btn-sm mt-3 mb-3" role="button">Редактировать</a>
+    
     <div class="row row-cols-1 g-4" id="{{photo.pk}}">
         <div class="col" style="width: min-content;">
 
@@ -34,12 +34,13 @@
     {% endfor %}
 
 
-    <form method="POST" action="{% url 'photo_delete' photo.pk %}">
-        {% csrf_token %}
-    
-        <input class="btn btn-secondary btn-sm mt-3" type="submit" value="удалить">
-    
-    </form>
+    {% if photo.author == user %}
+        <form method="POST" action="{% url 'photo_delete' photo.pk %}">
+            {% csrf_token %}
+            <a href="{% url 'photo_update' photo.pk %}" class="btn btn-secondary btn-sm  " role="button">Редактировать</a>
 
+            <input class="btn btn-secondary btn-sm " type="submit" value="удалить">
+        </form>
+    {% endif %}
 
 {% endblock %}
