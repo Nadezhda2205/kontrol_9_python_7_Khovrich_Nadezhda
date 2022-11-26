@@ -5,5 +5,4 @@ class PhotoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Photo
-        exclude = ('liked_users', 'commented_users')
-        
+        exclude = ('created_at', 'signature')

@@ -4,10 +4,10 @@ from api.views import PhotoApiView
 
 
 router = routers.DefaultRouter()
-router.register('posts', PhotoApiView)
+router.register('photo', PhotoApiView)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('photo/<int:pk>/favourite/', PhotoApiView.as_view({'get': 'liked_users'})),
-    path('posts/<int:pk>/fromfavorite/', PhotoApiView.as_view({'get': 'commented_users'})),
+    path('photo/<int:pk>/favourite/', PhotoApiView.as_view({'get': 'photo_to_favorite'})),
+    path('photo/<int:pk>/fromfavorite/', PhotoApiView.as_view({'get': 'photo_from_favorite'})),
 ]

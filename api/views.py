@@ -15,10 +15,10 @@ class PhotoApiView(ModelViewSet):
         photo_by_pk = self.get_object()
         user_from_request = request.user
         user_from_request.favourited_photos.add(photo_by_pk)
-        return JsonResponse({'key': 'aaaaa'})
+        return JsonResponse({'key': 'Add to favorite'})
     
     def photo_from_favorite(self, request, *args, **kwargs):
         photo_by_pk = self.get_object()
         user_from_request = request.user
         user_from_request.favourited_photos.remove(photo_by_pk)
-        return JsonResponse({'key': 'aaaaa'})
+        return JsonResponse({'key': 'Delete from favorite'})

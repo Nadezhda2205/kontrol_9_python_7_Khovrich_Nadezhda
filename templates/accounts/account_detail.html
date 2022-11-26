@@ -7,8 +7,7 @@
 {% endblock %}
 
 {% block content %}
-    Редактировать:<a href="{% url 'account_update' user.username %}">{{ user.username }}</a><br>
-
+    Редактировать:<a href="{% url 'account_update' account.username %}">{{ account.username }}</a><br>
 Автор:{{ account.name }}<br>
 Логин:{{ account.username }}<br>
 Телефон:{{ account.phone }} <br>
