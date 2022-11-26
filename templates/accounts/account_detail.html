@@ -7,11 +7,17 @@
 {% endblock %}
 
 {% block content %}
-    <a href="{% url 'account_update' user.username %}">{{ user.username }}</a>
+    Редактировать:<a href="{% url 'account_update' user.username %}">{{ user.username }}</a><br>
 
-{{ account.name }} - имя
-{{ account.username }}-
-{{ account.phone }} - 
-{{ account.email }} -
-
+Автор:{{ account.name }}<br>
+Логин:{{ account.username }}<br>
+Телефон:{{ account.phone }} <br>
+email:{{ account.email }} <br>
+{% for photo in account.favourited_photos.all %}
+    <div class="d-flex">
+        <div>
+    <img class="box_img border border-2 img" src="{{photo.photo.url}}" alt="image" width="150"><br>
+        </div>
+    </div>
+    {% endfor %}
 {% endblock %}

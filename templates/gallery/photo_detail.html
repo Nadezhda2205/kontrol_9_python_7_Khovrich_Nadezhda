@@ -7,11 +7,6 @@
 
 {% block content %}
 
-
-
-
-    {% comment %} {% for photo in photos %} {% endcomment %}
-    {% comment %} <a href="{% url 'edit_resume' resume.pk %}" class="btn btn-secondary btn-sm mt-3 ms-3" role="button">Отмена</a> {% endcomment %}
     <a href="{% url 'photo_update' photo.pk %}" class="btn btn-secondary btn-sm mt-3 mb-3" role="button">Редактировать</a>
     <div class="row row-cols-1 g-4" id="{{photo.pk}}">
         <div class="col" style="width: min-content;">
@@ -19,12 +14,8 @@
             <div class="card">
 
                 <div class="box">
-                    {% comment %} {% if photo %} {% endcomment %}
                     <a href="#">
                         <img class="box_img border border-2 img" src="{{ photo.photo.url }}" alt="image" width="350">
-                        {% comment %} {% else %} {% endcomment %}
-                            {% comment %} <img class="box_img border border-2 rounded-circle img" src="{% static 'img/placeholder.png' %}" alt="image" width="500"> {% endcomment %}
-                        {% comment %} {%endif%} {% endcomment %}
                     </a>
                 </div>
 
@@ -36,9 +27,9 @@
                     <span class="card-text">Описание: {{ photo.signature }}</span><br>
                     <span class="card-text">Дата создания: {{ photo.created_at }}</span><br>
                     <p>В списке избранных:</p>
-                    {% comment %} {% for favourite in avourites %} {% endcomment %}
-                    
-                    {% comment %} {% endfor %} {% endcomment %}
+                    {% for account in photo.favourited_users.all %}
+                        {{account.name}}
+                    {% endfor %}
 
 
                 </div>
