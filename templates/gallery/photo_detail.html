@@ -37,16 +37,16 @@
     {% if photo.author == user %}
         <form method="POST" action="{% url 'photo_delete' photo.pk %}">
             {% csrf_token %}
-            <a href="{% url 'photo_update' photo.pk %}" class="btn btn-secondary btn-sm  " role="button">Редактировать</a>
+            <a href="{% url 'photo_update' photo.pk %}" class="btn btn-secondary btn-sm " role="button">Редактировать</a>
 
             <input class="btn btn-secondary btn-sm " type="submit" value="удалить">
         </form>
     {% endif %}
 
     {% if photo in user.favourited_photos.all %}
-        <a href="#" class="from-fav btn btn-secondary btn-sm mb-3" id="{{photo.pk}}">Удалить из избранного</a>
+        <a href="#" class="from-fav btn btn-secondary btn-sm mt-3" id="{{photo.pk}}">Удалить из избранного</a>
     {% else %}
-        <a href="#" class="to-fav btn btn-secondary btn-sm mb-3" id="{{photo.pk}}">Добавить в избранное</a><br>
+        <a href="#" class="to-fav btn btn-secondary btn-sm mt-3" id="{{photo.pk}}">Добавить в избранное</a><br>
     {%endif%}
 
 
