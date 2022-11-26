@@ -11,16 +11,16 @@ class PhotoListView(ListView):
     context_object_name = 'photos'
     
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        if not self.request.user.is_authenticated:
-            return context
-        print(self.request.user.is_authenticated)
-        user: Account = self.request.user
-        subscriptions = user.subscriptions.all()
-        posts = Photo.objects.all()
-        subscriptions_posts = posts.filter(author__in = subscriptions)
-        context['photo'] = subscriptions_posts
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     if not self.request.user.is_authenticated:
+    #         return context
+    #     print(self.request.user.is_authenticated)
+    #     # user: Account = self.request.user
+    #     # subscriptions = user.subscriptions.all()
+    #     photo = Photo.objects.all()
+    #     # subscriptions_posts = posts.filter(author__in = subscriptions)
+    #     context['photo'] = photo
 
-        return context
+    #     return context
 

@@ -3,7 +3,7 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
-from accounts.views import IndexView, LoginView, logout_view, RegisterView, AccountDetailView, AccountUpdateView
+from accounts.views import LoginView, logout_view, RegisterView, AccountDetailView, AccountUpdateView
 from gallery.views import PhotoListView
 
 
