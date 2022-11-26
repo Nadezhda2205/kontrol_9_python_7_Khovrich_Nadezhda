@@ -14,9 +14,7 @@
             <div class="card">
 
                 <div class="box">
-                    <a href="#">
-                        <img class="box_img border border-2 img" src="{{ photo.photo.url }}" alt="image" width="350">
-                    </a>
+                    <img class="box_img border border-2 img" src="{{ photo.photo.url }}" alt="image" width="350">
                 </div>
 
                 <div class="card-body">
@@ -26,16 +24,15 @@
                 
                     <span class="card-text">Описание: {{ photo.signature }}</span><br>
                     <span class="card-text">Дата создания: {{ photo.created_at }}</span><br>
-                    <p>В списке избранных:</p>
-                    {% for account in photo.favourited_users.all %}
-                        {{account.name}}
-                    {% endfor %}
-
-
                 </div>
             </div>
         </div>
     </div>
+    <p>В списке избранных:</p>
+    {% for account in photo.favourited_users.all %}
+        {{account.name}}
+    {% endfor %}
+
 
     <form method="POST" action="{% url 'photo_delete' photo.pk %}">
         {% csrf_token %}
