@@ -41,3 +41,4 @@ class Favourite(models.Model):
 
     class Meta():
         ordering = ['created_at']
+

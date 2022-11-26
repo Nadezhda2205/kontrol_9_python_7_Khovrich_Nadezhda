@@ -29,7 +29,10 @@
       </a>
 
       <ul class="nav nav-pills">
-        <li class="nav-item">
+        <li class="nav-item me-5">
+          <a href="{% url 'photo_create' %}"><p>Добавление фото</p></a>
+
+          <a href=""><p>Детальный просмотр фото из галереи</p></a>
           
         </li>
         {% if user.is_authenticated %}
