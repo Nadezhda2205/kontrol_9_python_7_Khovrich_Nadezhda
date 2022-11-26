@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'bootstrapform',
     'accounts',
     'api',
+    'gallery',
 ]
 
 MIDDLEWARE = [
